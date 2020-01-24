@@ -12,6 +12,7 @@ class CardTest {
       {Suit.DIAMONDS, Rank.TWO},
       {Suit.HEARTS, Rank.THREE}
   };
+
   @Test
   void getSuit() {
     for (Object[] testCase : cardData) {

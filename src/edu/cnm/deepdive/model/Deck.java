@@ -22,7 +22,7 @@ public class Deck {
     }
   }
 
-  public Card deal () {
+  public Card deal() {
     Card card = cards.isEmpty() ?  null : cards.remove(0);
     if (card != null) {
       dealt.add(card);
@@ -41,10 +41,19 @@ public class Deck {
     return cards.toString();
   }
 
+
+  public int remaining() {
+    return cards.size();
+  }
+  public int dealt() {
+    return dealt.size();
+  }
+
   public static void main(String[] args) {
     Deck deck = new Deck();
     System.out.println(deck);
     deck.shuffle(new SecureRandom());
     System.out.println(deck);
   }
+
 }
