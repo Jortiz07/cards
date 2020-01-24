@@ -39,7 +39,7 @@ public class Card {
       comparison = true;
     } else if (obj instanceof Card) {
       Card other = (Card) obj;
-      if (hash == other.hash &&suit == other.suit && rank == other.rank) {
+      if (hash == other.hash && suit == other.suit && rank == other.rank) {
         comparison = true;
       }
     }
