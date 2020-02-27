@@ -8,6 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ *
+ */
 public class Trick {
 
   private Deck deck;
@@ -22,10 +25,18 @@ public class Trick {
     trick.swap();
     trick.report();
   }
+
+  /**
+   *
+   */
   private void prepare() {
     deck = new Deck();
     deck.shuffle(rng);
   }
+
+  /**
+   *
+   */
   private void split () {
     redPile = new LinkedList<>();
     blackPile = new LinkedList<>();
@@ -37,6 +48,10 @@ public class Trick {
       }
     }
   }
+
+  /**
+   *
+   */
   private void swap() {
     int swapSize = rng.nextInt(1 + Math.min(redPile.size(), blackPile.size()));
     for (int i = 0; i < swapSize; i ++) {
@@ -44,6 +59,10 @@ public class Trick {
       blackPile.add(redPile.remove(0));
     }
   }
+
+  /**
+   *
+   */
   private void report() {
     int redCount = 0;
     int blackCount = 0;

@@ -1,5 +1,9 @@
 package edu.cnm.deepdive.model;
 
+/**
+ * Encapsulates the rank values, range, and shorthand rank of a standard western card deck.
+ *{@link #symbol()}  returns the shorthand abbreviation  for each of the ranks in a standard card.
+ */
 public enum Rank {
   ACE,
   TWO,
@@ -14,6 +18,7 @@ public enum Rank {
   JACK,
   QUEEN,
   KING;
+
 
   private static final String[] symbols = {
       "A",
@@ -30,6 +35,10 @@ public enum Rank {
       "Q",
       "K"
   };
+
+  /**
+   *Returns the shorthand symbol for each rank.
+   */
   public String symbol () {
     return symbols[ordinal()];
   }

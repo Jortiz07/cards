@@ -7,11 +7,17 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ *
+ */
 public class Deck {
 
   private List<Card> cards;
   private List<Card> dealt;
 
+  /**
+   *
+   */
   public Deck() {
     cards = new ArrayList<>();
     dealt = new LinkedList<>();
@@ -22,6 +28,10 @@ public class Deck {
     }
   }
 
+  /**
+   *
+   * @return
+   */
   public Card deal() {
     Card card = cards.isEmpty() ?  null : cards.remove(0);
     if (card != null) {
@@ -30,10 +40,18 @@ public class Deck {
     return card;
   }
 
+  /**
+   *
+   * @param rng
+   */
   public void shuffle(Random rng) {
+    gather();
+    Collections.shuffle(cards, rng);
+  }
+
+  private void gather() {
     cards.addAll(dealt);
     dealt.clear();
-    Collections.shuffle(cards, rng);
   }
 
   @Override
@@ -41,19 +59,32 @@ public class Deck {
     return cards.toString();
   }
 
-
+  /**
+   *
+   * @return
+   */
   public int remaining() {
     return cards.size();
   }
+
+  /**
+   *
+   * @return
+   */
   public int dealt() {
     return dealt.size();
   }
 
-  public static void main(String[] args) {
-    Deck deck = new Deck();
-    System.out.println(deck);
-    deck.shuffle(new SecureRandom());
-    System.out.println(deck);
+  public void sort(boolean gather) {
+    if (gather) {
+      gather();
+    }
+    cards.sort((card1, card2) -> {
+      int result = card1.getSuit().compareTo(card2.getSuit());
+      if (result == 0) {
+        result = card1.getRank().compareTo(card2.getRank());
+      }
+      return result;
+    });
   }
-
 }
